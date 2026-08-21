@@ -1,4 +1,3 @@
-
 const dns = require("dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
@@ -16,7 +15,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo").default;
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 
 const passport = require("passport");
@@ -77,7 +76,7 @@ store.on("error", (err) => {
 
 const sessionOptions = {
     store,
-    secret: process.env.SECRERT,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
 
